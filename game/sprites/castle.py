@@ -10,9 +10,10 @@ class Castle:
         self.rect = pygame.Rect(x, y, self.width, self.height)
         
     def draw(self, screen):
+        # 绘制城堡主体
         pygame.draw.rect(screen, CASTLE_COLOR, self.rect)
 
-        # 塔楼
+        # 绘制塔楼
         tower_width = self.width // 3
         tower_spacing = (self.width - 3*tower_width) // 2
         
@@ -21,7 +22,7 @@ class Castle:
             tower = pygame.Rect(tower_x, self.y, tower_width, self.height//2)
             pygame.draw.rect(screen, CASTLE_COLOR, tower)
             
-            # 塔尖
+            # 绘制塔尖
             points = [
                 (tower_x, self.y),
                 (tower_x + tower_width//2, self.y - 20),
@@ -29,7 +30,7 @@ class Castle:
             ]
             pygame.draw.polygon(screen, RED, points)
             
-        # 门
+        # 绘制城门
         door_width = self.width // 3
         door_height = self.height // 3
         door = pygame.Rect(self.x + (self.width - door_width)//2,
